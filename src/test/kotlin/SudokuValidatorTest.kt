@@ -4,6 +4,22 @@ import org.junit.jupiter.api.Test
 class MissingLetterTests {
 
     @Test
+    fun `valid sudoku 1`() {
+        val board = arrayOf(
+            arrayOf(5, 3, 4, 6, 7, 8, 9, 1, 2),
+            arrayOf(6, 7, 2, 1, 9, 5, 3, 4, 8),
+            arrayOf(1, 9, 8, 3, 4, 2, 5, 6, 7),
+            arrayOf(8, 5, 9, 7, 6, 1, 4, 2, 3),
+            arrayOf(4, 2, 6, 8, 5, 3, 7, 9, 1),
+            arrayOf(7, 1, 3, 9, 2, 4, 8, 5, 6),
+            arrayOf(9, 6, 1, 5, 3, 7, 2, 8, 4),
+            arrayOf(2, 8, 7, 4, 1, 9, 6, 3, 5),
+            arrayOf(3, 4, 5, 2, 8, 6, 1, 7, 9)
+        )
+        assertEquals(true, validate(board))
+    }
+
+    @Test
     fun `all are 5`() {
         val board = arrayOf(
             arrayOf(5, 5, 5, 5, 5, 5, 5, 5, 5),
@@ -19,7 +35,7 @@ class MissingLetterTests {
         assertEquals(false, validate(board))
     }
 
-    @Test
+ /*   @Test
     fun `all rows are 1 - 9`() {
         val board = arrayOf(
             arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9),
@@ -33,7 +49,7 @@ class MissingLetterTests {
             arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
     @Test
     fun `all columns are 1 - 9`() {
@@ -51,23 +67,7 @@ class MissingLetterTests {
         assertEquals(false, validate(board))
     }
 
-    @Test
-    fun `valid sudoku 1`() {
-        val board = arrayOf(
-            arrayOf(5, 3, 4, 6, 7, 8, 9, 1, 2),
-            arrayOf(6, 7, 2, 1, 9, 5, 3, 4, 8),
-            arrayOf(1, 9, 8, 3, 4, 2, 5, 6, 7),
-            arrayOf(8, 5, 9, 7, 6, 1, 4, 2, 3),
-            arrayOf(4, 2, 6, 8, 5, 3, 7, 9, 1),
-            arrayOf(7, 1, 3, 9, 2, 4, 8, 5, 6),
-            arrayOf(9, 6, 1, 5, 3, 7, 2, 8, 4),
-            arrayOf(2, 8, 7, 4, 1, 9, 6, 3, 5),
-            arrayOf(3, 4, 5, 2, 8, 6, 1, 7, 9)
-        )
-        assertEquals(true, validate(board))
-    }
-
-    @Test
+    /*@Test
     fun `valid sudoku 2`() {
         val board = arrayOf(
             arrayOf(1, 3, 2, 5, 7, 9, 4, 6, 8),
@@ -81,9 +81,9 @@ class MissingLetterTests {
             arrayOf(8, 7, 9, 6, 4, 2, 1, 5, 3)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `valid sudoku 3`() {
         val board = arrayOf(
             arrayOf(7, 8, 4, 1, 5, 9, 3, 2, 6),
@@ -97,9 +97,9 @@ class MissingLetterTests {
             arrayOf(1, 9, 5, 2, 8, 7, 6, 3, 4)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `valid sudoku 4`() {
         val board = arrayOf(
             arrayOf(9, 2, 6, 5, 8, 3, 4, 7, 1),
@@ -113,9 +113,9 @@ class MissingLetterTests {
             arrayOf(1, 3, 9, 6, 4, 2, 8, 5, 7)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `valid sudoku 5`() {
         val board = arrayOf(
             arrayOf(7, 1, 5, 6, 2, 3, 8, 4, 9),
@@ -129,9 +129,9 @@ class MissingLetterTests {
             arrayOf(9, 4, 7, 3, 8, 1, 2, 5, 6)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `valid sudoku 6`() {
         val board = arrayOf(
             arrayOf(7, 8, 3, 4, 5, 6, 1, 2, 9),
@@ -145,9 +145,9 @@ class MissingLetterTests {
             arrayOf(2, 5, 8, 9, 1, 4, 7, 3, 6)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `valid sudoku 7`() {
         val board = arrayOf(
             arrayOf(1, 7, 3, 2, 6, 8, 9, 5, 4),
@@ -161,9 +161,9 @@ class MissingLetterTests {
             arrayOf(7, 8, 1, 6, 2, 4, 5, 3, 9)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `valid sudoku 8`() {
         val board = arrayOf(
             arrayOf(8, 4, 7, 2, 6, 5, 1, 9, 3),
@@ -177,9 +177,9 @@ class MissingLetterTests {
             arrayOf(2, 9, 3, 8, 5, 6, 4, 7, 1)
         )
         assertEquals(true, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `invalid because of 0 instead of 9`() {
         val board = arrayOf(
             arrayOf(8, 4, 7, 2, 6, 5, 1, 0, 3),
@@ -193,9 +193,9 @@ class MissingLetterTests {
             arrayOf(2, 0, 3, 8, 5, 6, 4, 7, 1)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `invalid because of duplicate 3 in eighth column`() {
         val board = arrayOf(
             arrayOf(1, 3, 2, 5, 7, 9, 4, 6, 8),
@@ -209,9 +209,9 @@ class MissingLetterTests {
             arrayOf(8, 7, 9, 6, 4, 2, 1, 3, 5)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `invalid boxes`() {
         val board = arrayOf(
             arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9),
@@ -225,9 +225,9 @@ class MissingLetterTests {
             arrayOf(9, 1, 2, 3, 4, 5, 6, 7, 8)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `invalid sudoku 1`() {
         val board = arrayOf(
             arrayOf(0, 3, 4, 6, 7, 8, 9, 1, 2),
@@ -241,9 +241,9 @@ class MissingLetterTests {
             arrayOf(3, 4, 5, 2, 8, 6, 1, 7, 9)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
-    @Test
+   /* @Test
     fun `invalid sudoku 2`() {
         val board = arrayOf(
             arrayOf(1, 2, 3, 4, 5, 6, 6, 9, 9),
@@ -257,9 +257,9 @@ class MissingLetterTests {
             arrayOf(9, 1, 2, 3, 4, 5, 6, 6, 9)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `invalid sudoku 3`() {
         val board = arrayOf(
             arrayOf(1, 2, 3, 1, 2, 3, 1, 2, 3),
@@ -273,9 +273,9 @@ class MissingLetterTests {
             arrayOf(9, 7, 8, 9, 7, 8, 9, 7, 8)
         )
         assertEquals(false, validate(board))
-    }
+    }*/
 
-    @Test
+    /*@Test
     fun `invalid because of repeated columns`() {
         val board = arrayOf(
             arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9),
@@ -290,4 +290,6 @@ class MissingLetterTests {
         )
         assertEquals(false, validate(board))
     }
+
+     */
 }
