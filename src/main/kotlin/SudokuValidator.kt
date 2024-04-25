@@ -4,6 +4,7 @@ fun validate(board: Array<Array<Int>>): Boolean {
         rowIsOneToNine(board) -> false
         boardContainsZero(board) -> false
         invalidColumnBecauseOfDuplicate(board) -> false
+        invalidBoxes(board) -> false
         else -> true
     }
 }
@@ -17,11 +18,15 @@ fun rowIsOneToNine(board: Array<Array<Int>>): Boolean {
 }
 
 fun boardContainsZero(board: Array<Array<Int>>): Boolean {
-    return board.any { it.contains(0) }
+    if(board.all {row -> row.all { number -> ("[1-9]".toRegex().matches(number.toString())) }
+    }) {
+        return false
+    }
+    return true
 }
 
 fun invalidColumnBecauseOfDuplicate(board: Array<Array<Int>>): Boolean {
-    for (i in board.indices - 1) {
+    for (i in board.indices) {
         if (listOf(
                 board[0][i],
                 board[1][i],
@@ -40,7 +45,6 @@ fun invalidColumnBecauseOfDuplicate(board: Array<Array<Int>>): Boolean {
     return false
 }
 
-/*
 fun invalidBoxes(board: Array<Array<Int>>): Boolean {
     for (i in board.indices step 3) {
         if (listOf(
@@ -59,4 +63,4 @@ fun invalidBoxes(board: Array<Array<Int>>): Boolean {
         }
     }
     return false
-}*/
+}
