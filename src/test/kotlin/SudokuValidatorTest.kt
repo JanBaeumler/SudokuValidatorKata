@@ -67,7 +67,7 @@ class MissingLetterTests {
         assertEquals(false, validate(board))
     }
 
-    /*@Test
+    @Test
     fun `valid sudoku 2`() {
         val board = arrayOf(
             arrayOf(1, 3, 2, 5, 7, 9, 4, 6, 8),
@@ -81,9 +81,9 @@ class MissingLetterTests {
             arrayOf(8, 7, 9, 6, 4, 2, 1, 5, 3)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `valid sudoku 3`() {
         val board = arrayOf(
             arrayOf(7, 8, 4, 1, 5, 9, 3, 2, 6),
@@ -97,9 +97,9 @@ class MissingLetterTests {
             arrayOf(1, 9, 5, 2, 8, 7, 6, 3, 4)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `valid sudoku 4`() {
         val board = arrayOf(
             arrayOf(9, 2, 6, 5, 8, 3, 4, 7, 1),
@@ -113,9 +113,9 @@ class MissingLetterTests {
             arrayOf(1, 3, 9, 6, 4, 2, 8, 5, 7)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `valid sudoku 5`() {
         val board = arrayOf(
             arrayOf(7, 1, 5, 6, 2, 3, 8, 4, 9),
@@ -129,9 +129,9 @@ class MissingLetterTests {
             arrayOf(9, 4, 7, 3, 8, 1, 2, 5, 6)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `valid sudoku 6`() {
         val board = arrayOf(
             arrayOf(7, 8, 3, 4, 5, 6, 1, 2, 9),
@@ -145,9 +145,9 @@ class MissingLetterTests {
             arrayOf(2, 5, 8, 9, 1, 4, 7, 3, 6)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `valid sudoku 7`() {
         val board = arrayOf(
             arrayOf(1, 7, 3, 2, 6, 8, 9, 5, 4),
@@ -161,9 +161,9 @@ class MissingLetterTests {
             arrayOf(7, 8, 1, 6, 2, 4, 5, 3, 9)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `valid sudoku 8`() {
         val board = arrayOf(
             arrayOf(8, 4, 7, 2, 6, 5, 1, 9, 3),
@@ -177,9 +177,9 @@ class MissingLetterTests {
             arrayOf(2, 9, 3, 8, 5, 6, 4, 7, 1)
         )
         assertEquals(true, validate(board))
-    }*/
+    }
 
-    /*@Test
+    @Test
     fun `invalid because of 0 instead of 9`() {
         val board = arrayOf(
             arrayOf(8, 4, 7, 2, 6, 5, 1, 0, 3),
@@ -193,7 +193,7 @@ class MissingLetterTests {
             arrayOf(2, 0, 3, 8, 5, 6, 4, 7, 1)
         )
         assertEquals(false, validate(board))
-    }*/
+    }
 
     /*@Test
     fun `invalid because of duplicate 3 in eighth column`() {
