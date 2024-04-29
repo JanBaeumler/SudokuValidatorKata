@@ -1,19 +1,19 @@
 fun validate(board: Array<Array<Int>>): Boolean {
     return when {
-        board.notUniqueValuesInRow() -> false
+        board.hasDuplicatedValuesInRow() -> false
         board.rowIsOneToNine() -> false
-        board.allRowsValid() -> false
+        !board.allRowsValid() -> false
         board.invalidColumnBecauseOfDuplicate() -> false
         board.invalidBoxes() -> false
         else -> true
     }
 }
 
-fun Array<Array<Int>>.notUniqueValuesInRow() = this.all { it.distinct().size != 9 }
+fun Array<Array<Int>>.hasDuplicatedValuesInRow() = this.all { it.distinct().size != 9 }
 
 fun Array<Array<Int>>.rowIsOneToNine() = this.all { it.contentEquals(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)) }
 
-fun Array<Array<Int>>.allRowsValid() = !this.all { row -> row.rowIsValid() }
+fun Array<Array<Int>>.allRowsValid() = this.all { row -> row.rowIsValid() }
 
 fun Array<Int>.rowIsValid() = this.all { number -> ("[1-9]".toRegex().matches(number.toString())) }
 
