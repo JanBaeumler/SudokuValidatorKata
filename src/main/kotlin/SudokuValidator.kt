@@ -11,7 +11,7 @@ fun validate(board: Array<Array<Int>>): Boolean {
 
 fun Array<Array<Int>>.notUniqueValuesInRow() = this.all { it.distinct().size != 9 }
 
-fun Array<Array<Int>>.rowIsOneToNine() = this.all { it.contentEquals(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9))}
+fun Array<Array<Int>>.rowIsOneToNine() = this.all { it.contentEquals(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)) }
 
 fun Array<Array<Int>>.allRowsValid() = !this.all { row -> row.rowIsValid() }
 
@@ -38,8 +38,7 @@ fun Array<Array<Int>>.invalidColumnBecauseOfDuplicate(): Boolean {
 }
 
 fun Array<Array<Int>>.invalidBoxes(): Boolean {
-    for (j in 0..6 step 3)
-    for (i in this.indices step 3) {
+    for (j in 0..6 step 3) for (i in this.indices step 3) {
         if (listOf(
                 this[j][i],
                 this[j][i + 1],
