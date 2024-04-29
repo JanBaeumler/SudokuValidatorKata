@@ -1,42 +1,34 @@
 fun validate(board: Array<Array<Int>>): Boolean {
     return when {
-        notUniqueValuesInRow(board) -> false
-        rowIsOneToNine(board) -> false
-        boardContainsZero(board) -> false
-        invalidColumnBecauseOfDuplicate(board) -> false
-        invalidBoxes(board) -> false
+        board.notUniqueValuesInRow() -> false
+        board.rowIsOneToNine() -> false
+        board.allRowsValid() -> false
+        board.invalidColumnBecauseOfDuplicate() -> false
+        board.invalidBoxes() -> false
         else -> true
     }
 }
 
-fun notUniqueValuesInRow(board: Array<Array<Int>>): Boolean {
-    return board.all { it.distinct().size != 9 }
-}
+fun Array<Array<Int>>.notUniqueValuesInRow() = this.all { it.distinct().size != 9 }
 
-fun rowIsOneToNine(board: Array<Array<Int>>): Boolean {
-    return board.all { it.contentEquals(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)) }
-}
+fun Array<Array<Int>>.rowIsOneToNine() = this.all { it.contentEquals(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9))}
 
-fun boardContainsZero(board: Array<Array<Int>>): Boolean {
-    if(board.all {row -> row.all { number -> ("[1-9]".toRegex().matches(number.toString())) }
-    }) {
-        return false
-    }
-    return true
-}
+fun Array<Array<Int>>.allRowsValid() = !this.all { row -> row.rowIsValid() }
 
-fun invalidColumnBecauseOfDuplicate(board: Array<Array<Int>>): Boolean {
-    for (i in board.indices) {
+fun Array<Int>.rowIsValid() = this.all { number -> ("[1-9]".toRegex().matches(number.toString())) }
+
+fun Array<Array<Int>>.invalidColumnBecauseOfDuplicate(): Boolean {
+    for (i in this.indices) {
         if (listOf(
-                board[0][i],
-                board[1][i],
-                board[2][i],
-                board[3][i],
-                board[4][i],
-                board[5][i],
-                board[6][i],
-                board[7][i],
-                board[8][i]
+                this[0][i],
+                this[1][i],
+                this[2][i],
+                this[3][i],
+                this[4][i],
+                this[5][i],
+                this[6][i],
+                this[7][i],
+                this[8][i]
             ).toSet().size != 9
         ) {
             return true
@@ -45,18 +37,19 @@ fun invalidColumnBecauseOfDuplicate(board: Array<Array<Int>>): Boolean {
     return false
 }
 
-fun invalidBoxes(board: Array<Array<Int>>): Boolean {
-    for (i in board.indices step 3) {
+fun Array<Array<Int>>.invalidBoxes(): Boolean {
+    for (j in 0..6 step 3)
+    for (i in this.indices step 3) {
         if (listOf(
-                board[i][i],
-                board[i][i + 1],
-                board[i][i + 2],
-                board[i + 1][i],
-                board[i + 1][i + 1],
-                board[i + 1][i + 2],
-                board[i + 2][i],
-                board[i + 2][i + 1],
-                board[i + 2][i + 2]
+                this[j][i],
+                this[j][i + 1],
+                this[j][i + 2],
+                this[j + 1][i],
+                this[j + 1][i + 1],
+                this[j + 1][i + 2],
+                this[j + 2][i],
+                this[j + 2][i + 1],
+                this[j + 2][i + 2]
             ).toSet().size != 9
         ) {
             return true
